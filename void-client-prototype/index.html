@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Void Cilent v0.1</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="bg">
+    <canvas id="stars"></canvas>
+    <div id="fog"></div>
+  </div>
+
+  <main class="container">
+    <header class="title"> 
+      <h1><span class="aqua">Void</span> <span class="white">Cilent</span></h1>
+      <div class="version">VOID CLIENT • v0.1</div>
+    </header>
+
+    <section class="content">
+      <div class="left-planet" id="planet" title="Void Orbit (关于)">
+        <!-- planet SVG is background via CSS -->
+      </div>
+
+      <div class="center">
+        <div class="menu-buttons">
+          <button class="menu-btn" id="singleBtn"><svg class="icon"><use href="assets/icons.svg#play"></use></svg> 单人世界</button>
+          <button class="menu-btn" id="multiBtn"><svg class="icon"><use href="assets/icons.svg#users"></use></svg> 多人世界</button>
+        </div>
+
+        <div class="bottom-controls">
+          <button class="small-btn" id="settingsBtn"><svg class="icon"><use href="assets/icons.svg#gear"></use></svg> 设置</button>
+          <div class="v-center" id="vlogo" title="Void">
+            <svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+              <polygon points="32,6 40,50 32,44 24,50" fill="#ffffff"/>
+              <polygon points="32,6 40,50 32,44 32,44" fill="#39CBE8" transform="translate(4,0) scale(0.9,1)"/>
+            </svg>
+          </div>
+          <button class="small-btn" id="modsBtn"><svg class="icon"><use href="assets/icons.svg#mods"></use></svg> 模组</button>
+        </div>
+      </div>
+
+      <aside class="player-card" id="playerCard" tabindex="0">
+        <div class="skin-preview" id="skinPreview">
+          <!-- SVG skin placeholder -->
+          <img src="assets/default-skin.svg" alt="皮肤" id="skinImage">
+        </div>
+        <div class="player-name" id="playerName">玩家名字</div>
+      </aside>
+    </section>
+  </main>
+
+  <!-- Modals / Pages -->
+  <div class="overlay hidden" id="modsPage">
+    <div class="panel">
+      <h2>模组管理</h2>
+      <div class="mod-item">
+        <div class="mod-info"><strong>ToggleSprint</strong><div class="mod-desc">切换冲刺</div></div>
+        <div class="mod-actions">
+          <label class="switch"><input type="checkbox" id="mod-togglesprint"><span></span></label>
+          <button class="btn-small" data-mod="ToggleSprint" id="cfg-togglesprint">设置</button>
+        </div>
+      </div>
+
+      <div class="mod-item">
+        <div class="mod-info"><strong>Zoom</strong><div class="mod-desc">按键缩放视野</div></div>
+        <div class="mod-actions">
+          <label class="switch"><input type="checkbox" id="mod-zoom"><span></span></label>
+          <button class="btn-small" data-mod="Zoom" id="cfg-zoom">设置</button>
+        </div>
+      </div>
+
+      <div class="panel-actions">
+        <button id="modsClose" class="btn">返回</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="overlay hidden" id="aboutPage">
+    <div class="panel">
+      <h2>关于 Void Cilent</h2>
+      <p>版本：v0.1<br>开发者：匿名<br>说明：此为演示原型，仅本地保存设置（localStorage）。</p>
+      <div class="panel-actions"><button id="aboutClose" class="btn">返回</button></div>
+    </div>
+  </div>
+
+  <div class="overlay hidden" id="playerEditor">
+    <div class="panel">
+      <h2>编辑玩家资料</h2>
+      <label>玩家名字：<input id="editName"/></label>
+      <label>上传皮肤PNG：<input id="skinFile" type="file" accept="image/png,image/*"/></label>
+      <div class="skin-preview-panel"><img id="previewImg" src="assets/default-skin.svg" alt="预览"></div>
+      <div class="panel-actions">
+        <button id="saveProfile" class="btn">保存</button>
+        <button id="cancelProfile" class="btn ghost">取消</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="overlay hidden" id="hudEditor">
+    <div class="panel hud-panel">
+      <h2>HUD 编辑器</h2>
+      <div class="hud-canvas" id="hudCanvas">
+        <div class="hud-module" id="mod-fps">FPS: 60</div>
+        <div class="hud-module" id="mod-cps">CPS: 0</div>
+      </div>
+      <div class="panel-actions">
+        <button id="saveHud" class="btn">Save</button>
+        <button id="cancelHud" class="btn ghost">Cancel</button>
+        <button id="resetHud" class="btn ghost">Reset</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

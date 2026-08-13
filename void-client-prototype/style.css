@@ -1,0 +1,60 @@
+/* style.css - Void Cilent 原型样式（中文界面） */
+:root{
+  --bg:#05070a; /* 深黑蓝 */
+  --panel:#0f1619;
+  --white:#ffffff;
+  --aqua:#39CBE8;
+  --muted:#9aa3a8;
+  --transition:180ms ease-out;
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:Poppins,system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial}
+body{background:var(--bg);color:var(--white);overflow:hidden}
+#bg{position:fixed;inset:0;z-index:0}
+#stars{position:absolute;inset:0;width:100%;height:100%}
+#fog{position:absolute;inset:0;background:radial-gradient(ellipse at center, rgba(57,203,232,0.03), transparent 30%);pointer-events:none}
+.container{position:relative;z-index:2;width:100%;height:100%;display:flex;flex-direction:column;align-items:center}
+.title{margin-top:30px;text-align:center}
+.title h1{font-size:56px;margin:0;letter-spacing:1px}
+.title .aqua{color:var(--aqua)}
+.title .white{color:var(--white)}
+.version{font-size:12px;color:var(--muted);margin-top:6px}
+.content{display:flex;flex:1;width:100%;max-width:1400px;padding:40px 60px;align-items:center;justify-content:space-between}
+.left-planet{width:220px;height:220px;border-radius:50%;background:linear-gradient(135deg,#03111a,#02101a);box-shadow:0 0 30px rgba(57,203,232,0.06);position:relative}
+.left-planet::after{content:"";position:absolute;inset:0;border-radius:50%;background:conic-gradient(rgba(57,203,232,0.04),transparent);mix-blend-mode:screen}
+.center{flex:1;display:flex;flex-direction:column;align-items:center}
+.menu-buttons{display:flex;flex-direction:column;gap:18px}
+.menu-btn{width:420px;background:#1b2124;border:2px solid var(--white);color:var(--white);padding:22px 28px;border-radius:8px;font-size:22px;display:flex;align-items:center;gap:12px;cursor:pointer;transition:transform var(--transition),box-shadow var(--transition),border-color var(--transition),background var(--transition)}
+.menu-btn .icon{width:22px;height:22px;fill:currentColor}
+.menu-btn:hover{border-color:var(--aqua);box-shadow:0 6px 18px rgba(57,203,232,0.12);transform:scale(1.05);background:#23282b}
+.menu-btn:active{transform:scale(1.02)}
+.bottom-controls{display:flex;gap:28px;margin-top:26px;align-items:center}
+.small-btn{background:#0f1315;border:2px solid var(--white);color:var(--white);padding:10px 14px;border-radius:8px;cursor:pointer;transition:all var(--transition)}
+.small-btn:hover{border-color:var(--aqua);box-shadow:0 6px 18px rgba(57,203,232,0.12);transform:scale(1.05)}
+.v-center{width:72px;height:72px;border-radius:8px;display:flex;align-items:center;justify-content:center;cursor:pointer}
+.player-card{width:260px;height:420px;border:2px solid var(--white);border-radius:12px;padding:16px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);display:flex;flex-direction:column;align-items:center;gap:12px}
+.skin-preview{width:180px;height:300px;background:#000;border:1px solid rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:center}
+.skin-preview img{max-width:100%;max-height:100%}
+.player-name{font-size:20px}
+/* overlays */
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,0.6);display:flex;align-items:center;justify-content:center;z-index:30}
+.hidden{display:none}
+.panel{background:linear-gradient(180deg,#0b1012,#071014);border:2px solid var(--white);padding:20px;border-radius:10px;width:640px;color:var(--white)}
+.panel h2{margin-top:0}
+.panel .mod-item{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.04)}
+.switch{display:inline-block}
+.switch input{display:none}
+.switch span{display:inline-block;width:44px;height:24px;background:#2b2f31;border-radius:24px;position:relative}
+.switch span:after{content:"";position:absolute;width:18px;height:18px;border-radius:50%;background:#fff;left:3px;top:3px;transition:all 120ms}
+.switch input:checked + span{background:linear-gradient(90deg,var(--aqua),#6fe7f5)}
+.switch input:checked + span:after{transform:translateX(20px)}
+.btn{background:transparent;border:2px solid var(--white);color:var(--white);padding:8px 14px;border-radius:6px;cursor:pointer}
+.btn.ghost{opacity:0.7}
+.btn-small{background:#111;border:1px solid var(--white);color:var(--white);padding:6px 8px;border-radius:6px}
+.panel-actions{display:flex;gap:8px;justify-content:flex-end;margin-top:16px}
+.hud-panel{width:900px}
+.hud-canvas{position:relative;height:360px;background:rgba(255,255,255,0.02);border-radius:6px;padding:10px;overflow:hidden}
+.hud-module{position:absolute;background:rgba(0,0,0,0.5);border:2px solid var(--white);padding:8px 12px;border-radius:6px;cursor:grab}
+.hud-module.dragging{opacity:0.9;border-color:var(--aqua);box-shadow:0 6px 20px rgba(57,203,232,0.14)}
+/* responsive */
+@media(max-width:900px){.menu-btn{width:320px}.player-card{display:none}.content{padding:20px}}
