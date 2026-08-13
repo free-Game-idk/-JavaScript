@@ -1,30 +1,25 @@
 # Void Cilent v0.1 — Web 原型
 
-这是按你的规范实现的可交互网页原型（放在 void-client-prototype/ 目录下）。界面语言为中文，标题和拼写保持为“Void Cilent”以配合你的原始描述。
+已根据你的 "go" 指示继续完善 HUD 编辑器：
 
-包含文件：
-- index.html
-- style.css
-- app.js
-- assets/icons.svg
-- assets/default-skin.svg
+新增内容（此提交）
+- HUD 编辑器支持：
+  - 网格（8px）与视觉参考线（中心/边缘吸附）
+  - 拖拽吸附到网格和中心/边缘（阈值 10px）
+  - 模块选中高亮、选中后可调整大小（0.5x-2.0x）与锁定位置
+  - 选中模块可重置（Reset Selected），保存会写入 localStorage
 
-功能亮点（原型）：
-- 主菜单布局（顶标、两条主按钮、底部设置/V/模组）
-- 鼠标悬停/按下动画（边框变为青蓝 #39CBE8、放大到 105%、外发光）
-- 左侧星球：点击打开 About 页面
-- 右侧玩家资料框：第一次点击选中，第二次点击进入编辑（可改名、上传皮肤PNG并预览）
-- 模组页面：每个模组单独开关（ToggleSprint、Zoom），有设置入口（示例）
-- HUD 编辑器示例：可拖拽 FPS/CPS 模块、保存到 localStorage、Cancel/Reset
+如何使用（HUD 编辑器）
+1. 打开：主菜单 点击 设置（Settings）
+2. 在 HUD 编辑器中单击任意模块选中（会显示控件）
+3. 调整大小滑块改变模块大小（实时预览）
+4. 勾选 锁定位置 防止在正常游戏中意外移动
+5. 拖动模块时靠近屏幕中心/边缘会出现对齐参考线并自动吸附
+6. 点击 Save 保存至 localStorage（将持久化）
 
-保存：
-- 设置/模组/玩家资料/HUD 都保存在浏览器 localStorage 中，key 在 app.js 顶部注释里可查看。
+下步建议
+- 为每个 HUD 模块增加更多样式控制（文字颜色、背景类型、透明度、对齐方式）
+- 补充模组设置界面：键位绑定、缩放等级滑块、默认配置保存/加载
+- 如果需要，我可以部署 GitHub Pages 供你在线查看（需你授权开启 Pages 或我提供部署步骤）
 
-如何本地查看：
-1. 克隆仓库并切到分支 void-client-ui-prototype
-2. 打开 void-client-prototype/index.html
-
-下一步我会：
-- 如果你确认无改动要求，我将把更多模组的 UI 与 HUD 模块选项补全，并把图标打磨为更精细的 SVG。
-- 如果要我部署 GitHub Pages 预览，请授权我开启 Pages 或告诉我你希望如何部署。
-
+提交在分支 void-client-ui-prototype 的 void-client-prototype/ 目录下。

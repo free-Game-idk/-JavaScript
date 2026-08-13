@@ -21,7 +21,6 @@
 
     <section class="content">
       <div class="left-planet" id="planet" title="Void Orbit (关于)">
-        <!-- planet SVG is background via CSS -->
       </div>
 
       <div class="center">
@@ -44,7 +43,6 @@
 
       <aside class="player-card" id="playerCard" tabindex="0">
         <div class="skin-preview" id="skinPreview">
-          <!-- SVG skin placeholder -->
           <img src="assets/default-skin.svg" alt="皮肤" id="skinImage">
         </div>
         <div class="player-name" id="playerName">玩家名字</div>
@@ -102,14 +100,34 @@
   <div class="overlay hidden" id="hudEditor">
     <div class="panel hud-panel">
       <h2>HUD 编辑器</h2>
-      <div class="hud-canvas" id="hudCanvas">
-        <div class="hud-module" id="mod-fps">FPS: 60</div>
-        <div class="hud-module" id="mod-cps">CPS: 0</div>
+      <div class="hud-main">
+        <div class="hud-canvas" id="hudCanvas">
+          <canvas id="hudGrid"></canvas>
+          <div class="hud-module" id="mod-fps">FPS: 60</div>
+          <div class="hud-module" id="mod-cps">CPS: 0</div>
+          <div class="align-line horiz hidden" id="alignH"></div>
+          <div class="align-line vert hidden" id="alignV"></div>
+        </div>
+
+        <aside class="hud-controls">
+          <h3>模块设置</h3>
+          <div class="control-row">
+            <label>大小：<input type="range" id="ctrlSize" min="0.5" max="2" step="0.1" value="1"></label>
+          </div>
+          <div class="control-row">
+            <label><input type="checkbox" id="ctrlLock"> 锁定位置</label>
+          </div>
+          <div class="control-row">
+            <button id="resetSelected" class="btn ghost">重置选中模块</button>
+          </div>
+          <div class="hint">提示：选中模块后可以调整大小与锁定。</div>
+        </aside>
       </div>
+
       <div class="panel-actions">
-        <button id="saveHud" class="btn">Save</button>
-        <button id="cancelHud" class="btn ghost">Cancel</button>
-        <button id="resetHud" class="btn ghost">Reset</button>
+        <button id="saveHud" class="btn">保存</button>
+        <button id="cancelHud" class="btn ghost">取消</button>
+        <button id="resetHud" class="btn ghost">重置全部</button>
       </div>
     </div>
   </div>
